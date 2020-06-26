@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Enter The Details</title>
+    <style>
+        body{
+background: url("static/pic.jpg") no-repeat;
+background-size: 100%;
+}
+section{
+padding-left: 10%;
+}
+label{
+color: whitesmoke;
+font-style: italic;
+padding-top: 10%;
+}
+input{
+border-radius: 4px;
+height: 28px;
+}
+input[type=submit]{
+border : none;
+border-radius: 7px;
+width: 150px;
+font-style: italic;
+}
+div{
+    margin-top: 10%;
+    margin-left: 30%;
+    width: 40%;
+}
+
+</style>   
+    </head>
+    <body>
+        <div>
+        <form method="POST" action="/predict/">
+            <label>Displacement of the Engine</label><br>
+            <input type="text" name="displacement"><br>
+            <label>BHP of the Engine</label><br>
+            <input type="text" name="bhp"><br>
+            <label>Weight of the Vehicle</label><br>
+            <input type="text" name="weight"><br><br>
+            <input type="submit" value="Predict The Mileage">
+        </div>
+        </form>
+    </body>
+</html>
