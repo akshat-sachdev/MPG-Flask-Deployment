@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
 import pickle
-from sklearn.preprocessing import StandardScaler
 
 
 app = Flask(__name__)
@@ -22,8 +21,10 @@ def predict():
             fp = open('Mileage Prediction.pkl', 'rb')
             model = pickle.load(fp)
             fp.close()
-            scale_data = StandardScaler()
-            data = scale_data.fit_transform([[cc, hp, wt]])
+            fp = open('scale_model.pkl', 'rb')
+            s_model = pickle.load(fp)
+            fp.close()
+            data = s_model.transform([[cc, hp, wt]])
             prediction = model.predict(data)
             return f"The Mileage will be around {prediction[0]:.2f}"
 app.run(host='localhost', debug=True)
